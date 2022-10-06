@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Features</title>
+   
+</head>
+<body>
+    
+    <img id="productImage" src="https://ddools.imgix.net/cars/base.png?w=600&amp;mark-align=center,middle&amp;mark=https%3A%2F%2Fddools.imgix.net%2Fcars%2Fpaint.png%3Fw%3D600%26bri%3D-18%26con%3D26%26monochrome%3D000000" alt="my base image">
+    <div class="colors">
+  
+        <div class="color" style="background-color: #0d4671" data-hex="0d4671"></div>
+        <div class="color" style="background-color: #63803a" data-hex="63803a"></div>
+        <div class="color" style="background-color: #841210" data-hex="841210"></div>
+         <div class="color" style="background-color: #a09e9f" data-hex="none"></div>
+         <input id="customColour" class="color jscolor" onchange="update(this.jscolor)" data-hex="" autocomplete="off" style="background-image: none; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+
+      </div>
+      <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+      <div class="color" style="background-color: #000000" data-hex="000000"></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+      <script id="rendered-js">
+        // Colour picker JS only
+        
+        // Reference of base image with paint watermark
+        const base = "https://ddools.imgix.net/cars/base.png?w=600&mark-align=center,middle&mark=https%3A%2F%2Fddools.imgix.net%2Fcars%2Fpaint.png%3Fw%3D600%26bri%3D-18%26con%3D26%26monochrome%3D";
+        
+        // Click on a color
+        var el = document.getElementsByClassName("color");
+        for (var i = 0; i < el.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+          el[i].onclick = changeColor;
+        }window.CP.exitedLoop(0);
+        
+        function changeColor(e) {
+          // get the hex color
+          let hex = e.target.getAttribute("data-hex");
+          // updated url
+          let updateColor = base + hex;
+          // update src of image
+          document.getElementById("productImage").src = updateColor;
+        
+        
+        }
+        
+        //http://jscolor.com
+        //Custom colourpicker
+        function update(jscolor) {
+          let updateColor = base + jscolor;
+          // Use 'jscolor' instance for car color
+          document.getElementById("productImage").src = updateColor;
+        }
+        //# sourceURL=pen.js
+            </script>
+  
+       
+
+
+</body>
+
+</html>
